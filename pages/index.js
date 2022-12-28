@@ -44,7 +44,7 @@ export default function Home() {
     <>
 
       <Head>
-        <title>NFT+</title>
+        <title>NFTDeFi</title>
         <meta name="description" content="DeFi For NFTs" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

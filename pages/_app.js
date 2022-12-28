@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
 
     <header className={styles.header}>
       <div>
-      <h2 className={styles.title}>NFT+</h2>
+      <h2 className={styles.title}>NFTDeFi</h2>
       </div>
       <div className={styles.buttonContainer}>
         <Link href="/lend">
