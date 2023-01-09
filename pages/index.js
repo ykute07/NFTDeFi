@@ -14,7 +14,7 @@ export default function Home() {
   const uauth = new UAuth(
     {
       clientID: "cb910a68-3550-48a9-8181-33d73897dbe3",
-      redirectUri: "http://localhost:3000/dashboard",
+      redirectUri: "http://nftdefi.netlify/dashboard",
       scope: "openid wallet email profile:optional social:optional"
     })
     useEffect(() => {
