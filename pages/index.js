@@ -38,7 +38,7 @@ export default function Home() {
         .loginWithPopup()
         .then(() => {
           <universallogin.Provider value = "true" />
-          router.push("/dashboard")
+          
 
         })
         .catch((e)=>{console.log(e)})
