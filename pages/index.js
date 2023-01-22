@@ -24,6 +24,9 @@ export default function Home() {
       uauth
         .user()
         .then(setUser)
+        .then(()=>{
+          <universallogin.Provider value={"true"}/>
+        })
         .catch(() => {})
         .finally(() => setLoading(false))
     }, [])
@@ -33,16 +36,17 @@ export default function Home() {
     *///////////////////////
      const handleLogin = async() => {
       setLoading(true)
+      
       await uauth
         .loginWithPopup()
         .then(() => {
-          <universallogin.Provider value = {"true"} ></universallogin.Provider>
+         
           
 
         })
         .catch((e)=>{console.log(e)})
         .finally(() => {})
-    
+        
     }
   return (
     <>
