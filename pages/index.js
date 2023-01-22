@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useContext } from "react";
 import { useRouter } from "next/router";
 import styles from '../styles/Home.module.css'
 import UAuth from "@uauth/js";
@@ -37,7 +36,7 @@ export default function Home() {
       await uauth
         .loginWithPopup()
         .then(() => {
-          <universallogin.Provider value = {"true"} />
+          <universallogin.Provider value = {"true"} ></universallogin.Provider>
           
 
         })

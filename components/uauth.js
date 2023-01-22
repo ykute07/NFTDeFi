@@ -1,5 +1,5 @@
-import {createContext} from 'react'
+import React from 'react'
 
-const universallogin = createContext('false');
+const universallogin = React.createContext('false');
 
 export default universallogin
