@@ -37,7 +37,7 @@ export default function Home() {
       await uauth
         .loginWithPopup()
         .then(() => {
-          <universallogin.Provider value = "true" />
+          <universallogin.Provider value = {"true"} />
           
 
         })
