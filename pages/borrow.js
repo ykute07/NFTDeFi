@@ -4,7 +4,10 @@ import XDCAccount from '../components/context';
 import NFTLendABI from '../contracts/NFTLendABI.json'
 import { ethers } from "ethers";
 import Image from 'next/image'
+import logo from "./login_image.png"
 import Web3 from "web3"
+import Link from 'next/link'
+import universallogin from '../components/uauth';
 
 // ui to display NFTs users can borrow
 
@@ -17,9 +20,9 @@ export default function Borrow(){
     // for contract write
     const web3 = new Web3('https://rpc.xinfin.network/');
     const NFTLendWrite = new web3.eth.Contract(NFTLendABI,contract);
-
+    const context1 = useContext(universallogin)
     const context = useContext(XDCAccount)
-
+    if(context1==='true'){
     const[market, setMarket] = useState([])
     const[active, setActive] = useState([])
     const[searchTab, toggleSearch] = useState(false)
@@ -114,7 +117,19 @@ export default function Borrow(){
         }
 
         </div>
-    )
+    )}
+    else {
+        return(
+            <div style={{textAlign:'center',marginTop:100 }}>
+        <div style={{ padding:0,border:10,background:"#000000"}}>
+      
+         
+        <Link href="/"><Image src={logo}  /></Link>
+      
+      </div>
+      </div>
+        )
+        }
 }
 
 

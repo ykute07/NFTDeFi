@@ -1,15 +1,18 @@
 import Head from 'next/head'
+import { useContext } from "react";
 import { useRouter } from "next/router";
 import styles from '../styles/Home.module.css'
 import UAuth from "@uauth/js";
 import Image from 'next/image'
 import logo from "./default-button.png"
 import { useEffect, useState } from "react";
+import {universallogin} from "../components/uauth"
 export default function Home() {
   const router = useRouter();
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState()
+  
   
   const uauth = new UAuth(
     {
@@ -34,7 +37,9 @@ export default function Home() {
       await uauth
         .loginWithPopup()
         .then(() => {
+          <universallogin.Provider value = "true" />
           router.push("/dashboard")
+
         })
         .catch((e)=>{console.log(e)})
         .finally(() => {})

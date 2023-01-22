@@ -480,6 +480,11 @@
     "tiny-glob" "^0.2.9"
     "tslib" "^2.4.0"
 
+"@remix-run/router@1.3.0":
+  "integrity" "sha512-nwQoYb3m4DDpHTeOwpJEuDt8lWVcujhYYSFGLluC+9es2PyLjm+jjq3IeRBQbwBtPLJE/lkuHuGHr8uQLgmJRA=="
+  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.3.0.tgz"
+  "version" "1.3.0"
+
 "@rushstack/eslint-patch@^1.1.3":
   "integrity" "sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg=="
   "resolved" "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz"
@@ -4299,7 +4304,7 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
-"react-dom@^16.8.2 || ^17.0 || ^18.x", "react-dom@^18.2.0", "react-dom@18.2.0":
+"react-dom@^16.8.2 || ^17.0 || ^18.x", "react-dom@^18.2.0", "react-dom@>=16.8", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -4319,7 +4324,22 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
-"react@^16.8.2 || ^17.0 || ^18.x", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@18.2.0":
+"react-router-dom@^6.7.0":
+  "integrity" "sha512-jQtXUJyhso3kFw430+0SPCbmCmY1/kJv8iRffGHwHy3CkoomGxeYzMkmeSPYo6Egzh3FKJZRAL22yg5p2tXtfg=="
+  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.7.0.tgz"
+  "version" "6.7.0"
+  dependencies:
+    "@remix-run/router" "1.3.0"
+    "react-router" "6.7.0"
+
+"react-router@6.7.0":
+  "integrity" "sha512-KNWlG622ddq29MAM159uUsNMdbX8USruoKnwMMQcs/QWZgFUayICSn2oB7reHce1zPj6CG18kfkZIunSSRyGHg=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.7.0.tgz"
+  "version" "6.7.0"
+  dependencies:
+    "@remix-run/router" "1.3.0"
+
+"react@^16.8.2 || ^17.0 || ^18.x", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.8", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

@@ -4,11 +4,15 @@ import Web3 from "web3"
 import ConnectButton from '../components/auth';
 import XDCAccount from '../components/context';
 import NFTLendABI from '../contracts/NFTLendABI.json'
+import logo from "./login_image.png"
 import Image from 'next/image'
-
+import universallogin from '../components/uauth';
+import Router  from "next/router";
+import  { Redirect,Route } from 'react-router-dom'
+import Link from 'next/link'
 // ui for users to check their lendings / borrowings
-
-const contract = '0x11A316F21fe0D7AFCEC3eE3c4F08ceA7A70b842f';
+import { useHistory } from "react-router-dom";
+const contract = '0x11A316F21fe0D7AFCEC3eE3c4F08ceA7A70b842f'
 const provider = new ethers.providers.JsonRpcProvider('https://rpc.xinfin.network/');
 const NFTLend = new ethers.Contract(contract, NFTLendABI, provider);
 
@@ -17,15 +21,17 @@ const NFTLend = new ethers.Contract(contract, NFTLendABI, provider);
  const NFTLendWrite = new web3.eth.Contract(NFTLendABI,contract);
 
 export default function Dashboard(){
-
+    
+    
+    const context1 = useContext(universallogin)
     const context = useContext(XDCAccount)
-
+    if(context1==='true'){
     const [tabView, setTabView] = useState('Borrowing')
     const [balance, setBalance] = useState('')
     const [lendings, setLendings] = useState('')
     const [borrowings, setBorrowings] = useState('')
     const [borrowURI, setBorrowURI] = useState('')
-
+    
     useEffect(()=>{
         if(context.xdcAddress === ''){
             return;
@@ -249,7 +255,7 @@ export default function Dashboard(){
     return (
      <div style={mainContainer}>
 
-         {
+ {
              context.xdcAddress === '' ? 
                 <div style={{display:'flex', height:'100%', justifyContent:'center', alignItems:'center'}}>
                 <ConnectButton/>
@@ -280,9 +286,23 @@ export default function Dashboard(){
                 </div>
              </div>
          }
-         
+       
      </div>
     )
+
+}
+       else {
+        return(
+            <div style={{textAlign:'center',marginTop:100 }}>
+        <div style={{ padding:0,border:10,background:"#000000"}}>
+      
+         
+        <Link href="/"><Image src={logo}  /></Link>
+      
+      </div>
+      </div>
+        )
+        }
 }
 
 // styles

@@ -4,6 +4,10 @@ import {useState, useEffect, useContext} from "react"
 import XDCAccount from '../components/context';
 import { ethers } from "ethers";
 import Web3 from "web3"
+import logo from "./login_image.png"
+import Link from 'next/link'
+import universallogin from '../components/uauth';
+import Image from 'next/image'
 
 export default function Lend(){
 
@@ -14,9 +18,9 @@ export default function Lend(){
      // for contract write
      const web3 = new Web3('https://rpc.xinfin.network/');
      const NFTLendWrite = new web3.eth.Contract(NFTLendABI,contract);
-
+    const context1 = useContext(universallogin)
     const context = useContext(XDCAccount)
-
+    if(context1==='true'){
     const[address, setAddress] = useState('')
     const[id, setID] = useState('')
     const[worth, setWorth] = useState('')
@@ -118,10 +122,27 @@ export default function Lend(){
             </div>
 
         </div>
-    )
+    )}
+    else {
+        return(
+            <div style={{textAlign:'center',marginTop:100 }}>
+        <div style={{ padding:0,border:10,background:"#000000"}}>
+      
+         
+        <Link href="/"><Image src={logo}  /></Link>
+      
+      </div>
+      </div>
+        )
+        }
 }
 
-
+const mainContainer = {
+    display:'grid',
+    height: '85vh',
+    padding:'0rem 2rem',
+    overflow:'auto',
+}
 const container ={
     padding: '0 2rem',
     height: '90vh',

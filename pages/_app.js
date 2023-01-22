@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
       <div>
       <h2 className={styles.title}>NFTDeFi</h2>
       </div>
-      <div className={styles.buttonContainer}>
+      {/* <div className={styles.buttonContainer}>
         <Link href="/lend">
         <button className={styles.button}> Lend </button>
         </Link>
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
         <Link href="/dashboard">
         <button className={styles.button}> Dashboard </button>
         </Link>
-      </div>
+      </div> */}
     </header>
 
   <XDCAccount.Provider value={{xdcAddress, setXDCAddress}}>
