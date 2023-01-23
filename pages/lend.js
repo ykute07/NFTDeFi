@@ -6,7 +6,8 @@ import { ethers } from "ethers";
 import Web3 from "web3"
 import logo from "./login_image.png"
 import Link from 'next/link'
-import universallogin from '../components/uauth';
+import '../components/config';
+// import universallogin from '../components/uauth';
 import Image from 'next/image'
 
 export default function Lend(){
@@ -18,9 +19,9 @@ export default function Lend(){
      // for contract write
      const web3 = new Web3('https://rpc.xinfin.network/');
      const NFTLendWrite = new web3.eth.Contract(NFTLendABI,contract);
-    const context1 = useContext(universallogin)
+    // const context1 = useContext(universallogin)
     const context = useContext(XDCAccount)
-    if(context1==='true'){
+    if(global.config.i18n.value==='true'){
     const[address, setAddress] = useState('')
     const[id, setID] = useState('')
     const[worth, setWorth] = useState('')

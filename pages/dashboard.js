@@ -6,7 +6,7 @@ import XDCAccount from '../components/context';
 import NFTLendABI from '../contracts/NFTLendABI.json'
 import logo from "./login_image.png"
 import Image from 'next/image'
-import universallogin from '../components/uauth';
+import '../components/config';
 import Router  from "next/router";
 import  { Redirect,Route } from 'react-router-dom'
 import Link from 'next/link'
@@ -23,9 +23,9 @@ const NFTLend = new ethers.Contract(contract, NFTLendABI, provider);
 export default function Dashboard(){
     
     
-    const context1 = useContext(universallogin)
+    
     const context = useContext(XDCAccount)
-    if(context1==='true'){
+    if(global.config.i18n.value=='true'){
     const [tabView, setTabView] = useState('Borrowing')
     const [balance, setBalance] = useState('')
     const [lendings, setLendings] = useState('')

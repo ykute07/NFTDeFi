@@ -5,7 +5,8 @@ import UAuth from "@uauth/js";
 import Image from 'next/image'
 import logo from "./default-button.png"
 import { useEffect, useState } from "react";
-import {universallogin} from "../components/uauth"
+import Dashboard from './dashboard';
+import "../components/config"
 export default function Home() {
   const router = useRouter();
   const [loaded, setLoaded] = useState(false);
@@ -15,17 +16,18 @@ export default function Home() {
   
   const uauth = new UAuth(
     {
-      clientID: "cb910a68-3550-48a9-8181-33d73897dbe3",
-      redirectUri: "https://nftdefi.netlify.app/dashbboard",
-      scope: "openid wallet email profile:optional social:optional"
-    })
+    clientID: "cb910a68-3550-48a9-8181-33d73897dbe3",
+    redirectUri: "http://localhost:3000/dashboard",
+    scope: "openid wallet email profile:optional social:optional"
+  })
+
     useEffect(() => {
       setLoading(true)
       uauth
         .user()
         .then(setUser)
         .then(()=>{
-          <universallogin.Provider value={"true"}/>
+          
         })
         .catch(() => {})
         .finally(() => setLoading(false))
@@ -35,15 +37,18 @@ export default function Home() {
     *   Login/out Functions
     *///////////////////////
      const handleLogin = async() => {
-      setLoading(true)
+      
       
       await uauth
         .loginWithPopup()
         .then(() => {
-         
+         setLoading(true)
+         global.config.i18n.value="true" 
+         router.push("/")
+         console.log(global.config.i18n.value)
           
-
         })
+        
         .catch((e)=>{console.log(e)})
         .finally(() => {})
         
@@ -67,7 +72,10 @@ export default function Home() {
            onClick={         handleLogin
                
            }
-         ><a>  
+         ><a>
+        
+          
+        
         <Image src={logo}  />
          </a>
          </button>

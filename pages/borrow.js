@@ -7,7 +7,8 @@ import Image from 'next/image'
 import logo from "./login_image.png"
 import Web3 from "web3"
 import Link from 'next/link'
-import universallogin from '../components/uauth';
+import '../components/config';
+// import universallogin from '../components/uauth';
 
 // ui to display NFTs users can borrow
 
@@ -20,9 +21,9 @@ export default function Borrow(){
     // for contract write
     const web3 = new Web3('https://rpc.xinfin.network/');
     const NFTLendWrite = new web3.eth.Contract(NFTLendABI,contract);
-    const context1 = useContext(universallogin)
+    // const context1 = useContext(universallogin)
     const context = useContext(XDCAccount)
-    if(context1==='true'){
+    if(global.config.i18n.value==='true'){
     const[market, setMarket] = useState([])
     const[active, setActive] = useState([])
     const[searchTab, toggleSearch] = useState(false)

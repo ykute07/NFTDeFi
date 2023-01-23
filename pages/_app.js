@@ -5,10 +5,12 @@ import Link from 'next/link'
 import Logo from '../public/xinfin.png'
 import XDCAccount from '../components/context'
 import {useState} from 'react'
-
+import '../components/config';
 
 function MyApp({ Component, pageProps }) {
   const [xdcAddress, setXDCAddress] = useState('')
+  if(global.config.i18n.value=='true'){
+ 
   return (
     <>
 
@@ -16,7 +18,7 @@ function MyApp({ Component, pageProps }) {
       <div>
       <h2 className={styles.title}>NFTDeFi</h2>
       </div>
-      {/* <div className={styles.buttonContainer}>
+      <div className={styles.buttonContainer}>
         <Link href="/lend">
         <button className={styles.button}> Lend </button>
         </Link>
@@ -26,7 +28,7 @@ function MyApp({ Component, pageProps }) {
         <Link href="/dashboard">
         <button className={styles.button}> Dashboard </button>
         </Link>
-      </div> */}
+      </div>
     </header>
 
   <XDCAccount.Provider value={{xdcAddress, setXDCAddress}}>
@@ -36,6 +38,26 @@ function MyApp({ Component, pageProps }) {
  
   </>
   )
+    }
+    else{
+      return (
+        <>
+    
+        <header className={styles.header}>
+          <div>
+          <h2 className={styles.title}>NFTDeFi</h2>
+          </div>
+         
+        </header>
+    
+      <XDCAccount.Provider value={{xdcAddress, setXDCAddress}}>
+        <Component {...pageProps} />
+      </XDCAccount.Provider>
+    
+     
+      </>
+      )
+    }
 }
 
 export default MyApp
