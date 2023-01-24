@@ -28,6 +28,7 @@ function MyApp({ Component, pageProps }) {
         <Link href="/dashboard">
         <button className={styles.button}> Dashboard </button>
         </Link>
+        <button className={styles.button}>{global.config.i18n.address}</button>
       </div>
     </header>
 
